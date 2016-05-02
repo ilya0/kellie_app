@@ -1,1 +1,3 @@
-kellie_app
+#Project 3
+
+The Magic Kelly Helper App
