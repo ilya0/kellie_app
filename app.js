@@ -8,7 +8,7 @@ var routes        = require('./routes/index');
 var instructors   = require('./routes/instructor');
 var session       = require('express-session');
 var db            = require('./config/db');
-var GoogleStrategy = require('passport-google-oauth20').Strategy;
+// var GoogleStrategy = require('passport-google-oauth20').Strategy;
 var app           = express();
 
 
