@@ -11,9 +11,9 @@ var db            = require('./config/db');
 // var GoogleStrategy = require('passport-google-oauthx20').Strategy;
 var app           = express();
 
-
 // Routes
 var instructorRoute = require('./routes/instructor.js');
+var calendarRoute   = require('./routes/calendar');
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -30,7 +30,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', routes);
 // app.use('/instructors', instructors);
 
-app.use('/instructors', instructors);
+app.use('/calendar', calendarRoute);
 
 
 // catch 404 and forward to error handler
