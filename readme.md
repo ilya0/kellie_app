@@ -1,4 +1,4 @@
 #Project 3
 
-The Magic Kelly Helper App
+The Magic Kellie Helper App
 
