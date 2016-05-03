@@ -1,6 +1,8 @@
 var mongoose = require('mongoose');
-var bcrypt = require('bcrypt');
+// var bcrypt = require('bcrypt');
 
+//TODO make this work with passport local
+// https://github.com/jaredhanson/passport-local
 var userSchema = new mongoose.Schema({
   username : String,
   password : String,
