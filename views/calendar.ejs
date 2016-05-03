@@ -15,9 +15,28 @@
     $('#calendar').fullCalendar({
     dayClick: function() {
         alert('a day has been clicked!');
+        var text = prompt("Add your event", " ");
      }
   });
 
+$('#calendar').fullCalendar({
+    events: [
+        {
+            title: 'My Event',
+            start: '2010-01-01',
+            url: 'http://google.com/'
+        }
+        // other events here
+    ],
+    eventClick: function(event) {
+        if (event.url) {
+            window.open(event.url);
+            return false;
+        }
+    }
+});
+
+$('#calendar').fullCalendar( 'addEventSource', source );
 
 });</script>
   </head>
@@ -28,6 +47,7 @@
   <div class="instructor">
     <p> Instructor Login </p>
   </div>
+  <div>
     <br>
     <p>Splashpage goes here</p>
   </body>
