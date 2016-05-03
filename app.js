@@ -6,7 +6,11 @@ var cookieParser  = require('cookie-parser');
 var bodyParser    = require('body-parser');
 var routes        = require('./routes/index');
 var instructors   = require('./routes/instructor');
+var producers     = require('./routes/producer');
 var session       = require('express-session');
+var Strategy      = require('passport-local').Strategy;
+var passport      = require('passport');
+
 var db            = require('./config/db');
 // var GoogleStrategy = require('passport-google-oauthx20').Strategy;
 var app           = express();
@@ -31,6 +35,8 @@ app.use('/', routes);
 // app.use('/instructors', instructors);
 
 app.use('/instructors', instructors);
+app.use('/producers', producers);
+
 
 
 // catch 404 and forward to error handler

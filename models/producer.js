@@ -15,6 +15,6 @@ userSchema.methods.encrypt = function(pwd) {
   return bcrypt.hashSync(pwd, 8);
 };
 
-var Instructor = mongoose.model('instructor', userSchema);
+var Producer = mongoose.model('producer', userSchema);
 
-module.exports = Instructor;
+module.exports = Producer;
