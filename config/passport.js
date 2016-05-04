@@ -13,7 +13,7 @@ passport.deserializeUser(function(id, done) {
     done(err, user);
   });
 });
-
+//test
 passport.use('local-signup', new LocalStrategy(
   {passReqToCallback: true},
   function(req, username, password, done) {
