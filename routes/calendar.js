@@ -16,9 +16,12 @@ router.post('/', function(req, res, next){
   console.log(req.body);
   var newEvent = new Event();
   newEvent.title = req.body.title;
+  newEvent.start = new Date(2016, 04, 10);
+  newEvent.end = new Date(2016, 04, 10);
   newEvent.save(function(err) {
     if (err) throw err;
-      res.json({success: true, message: newEvent.title});
+    console.log(newEvent)
+    res.json({success: true, message: newEvent});
   });
 });
 
