@@ -5,47 +5,15 @@
     <link rel='stylesheet' href='/fullCalendar/fullcalendar.css' />
     <link rel='stylesheet' href='/stylesheets/style.css' />
 
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-beta1/jquery.min.js'></script>
+    <script src="https://code.jquery.com/jquery-2.2.3.js" integrity="sha256-laXWtGydpwqJ8JA+X9x2miwmaiKhn8tVmOVEigRNtP4=" crossorigin="anonymous"></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.13.0/moment.min.js'></script>
     <script src='/fullCalendar/fullcalendar.js'></script>
     <script src='/javascripts/calendar.js'></script>
   </head>
-  <body>
-    <button id="buttonHi">click meeee</button>
+    <body>
     <div id="calendar"></div>
-    <h1>whatever</h1>
-    <br>
-  <div class="instructor">
-    <p> Instructor Login </p>
-  </div>
-  <div>
-    <br>
-    <p>Splashpage goes here</p>
-    <script>
-      $('#buttonHi').on('click', function() {
-    console.log('You did it!')
-    $('#calendar').fullCalendar({
-    events: {
-            type: 'GET',
-            url: '/calendar',
-            error: function() {
-                alert('error!');
-            },
-            success: function(reply) {
-                console.log(reply.first);
-                callback(reply.first)
-            },
-            color: 'yellow',
-            textColor: 'black'
-        },
-    eventClick: function(event) {
-        if (event.url) {
-            window.open(event.url);
-            return false;
-        }
-    }
-})
-});
+    <script src='/javascripts/calendar.js'></script>
+
     </script>
   </body>
 </html>
