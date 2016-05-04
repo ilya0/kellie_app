@@ -1,6 +1,7 @@
 var userController = {};
 var User = require('../models/user');
 var passport = require('passport');
+require('../config/passport')(passport)
 
 userController.index = function(req, res) {
    User.find({}, function(err, users) {
@@ -21,11 +22,11 @@ userController.new = function(req, res) {
 userController.create = function(req, res) {
   var signUpStrategy = passport.authenticate('local-signup', {
     successRedirect: '/',
-    failureRedirect: '/',
+    failureRedirect: 'users/signup',
     failureFlash: true
   });
 
-  return signUpStrategy(request, response);
+  return signUpStrategy(req, res);
 };
 
 userController.getLogin = function(request, response) {

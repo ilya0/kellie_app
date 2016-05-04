@@ -1,6 +1,9 @@
+var passport      = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 var User          = require('../models/user');
 
+
+module.exports = function(passport) {
 passport.serializeUser(function(user, done) {
   done(null, user.id);
 });
@@ -12,6 +15,7 @@ passport.deserializeUser(function(id, done) {
 });
 
 passport.use('local-signup', new LocalStrategy(
+  {passReqToCallback: true},
   function(req, username, password, done) {
     process.nextTick(function(){
 
@@ -57,4 +61,4 @@ passport.use('local-login', new LocalStrategy(
     });
   }));
 
-module.exports = passport;
+}

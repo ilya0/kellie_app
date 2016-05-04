@@ -8,7 +8,7 @@ var bodyParser = require('body-parser');
 router.route('/')
   .get(userController.index);
 
-router.route('/signUp')
+router.route('/signup')
   .get(userController.new)
   .post(userController.create);
 

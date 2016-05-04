@@ -8,26 +8,25 @@
 </head>
 <body>
   <h1>Instructor Sign Up Page!</h1>
-  <form action="/create" method="post">
-  <div>
-  <label>Username:</label>
-  <input type="text" name="username"/><br/>
-  </div>
-  <div>
-  <label>Password:</label>
-  <input type="password" name="password"/>
-  </div>
-  <div>
-  <label>email:</label>
-  <input type="email" name="email"/>
-  </div>
-  <div>
-  <label>role:</label>
-  <input type="role" name="role"/>
-  </div>
-  <div>
-  <input type="submit" value="Submit"/>
-  </div>
+  <form action="/users/signup" method="post">
+    <div>
+    <label>Username:</label>
+    <input type="text" name="username"/><br/>
+    </div>
+    <div>
+    <label>Password:</label>
+    <input type="password" name="password"/>
+    </div>
+    <div>
+    <label>email:</label>
+    <input type="email" name="email"/>
+    </div>
+    <div>
+    <input type="hidden" name="role" value="instructor"/>
+    </div>
+    <div>
+    <input type="submit" value="Submit"/>
+    </div>
   </form>
 
 </body>
