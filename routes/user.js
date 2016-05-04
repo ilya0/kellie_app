@@ -4,10 +4,6 @@ var userController = require('../controllers/users_controller');
 var passport = require('passport');
 var bodyParser = require('body-parser');
 
-// var authenticatedUser = function(req, res, next) {
-//   if (req.isAuthenticated()) return next();
-//   res.redirect('/');
-// };
 
 router.route('/')
   .get(userController.index);
