@@ -12,6 +12,4 @@ mongoose.connect(mongooseURL, function(err){
 });
 
 
-
-
 module.exports = mongoose;

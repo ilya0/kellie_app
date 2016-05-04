@@ -45,8 +45,12 @@ app.get('/', function(req, res, next) {
   res.render('index', { title: 'Project 3' });
 });
 
-app.get('/calendar', function(req, res, next) {
+app.use('/calendar', function(req, res, next) {
   res.render('calendar', { title: 'Project 3' });
+});
+
+app.use('/profile', function(req, res, next) {
+  res.render('profile', { title: 'Project 3'});
 });
 
 // app.use('/', routes);
@@ -64,7 +68,7 @@ app.get('/calendar', function(req, res, next) {
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
-  var err = new Error('Not Found');;
+  var err = new Error('Not Found');
   err.status = 404;
   next(err);
 });
