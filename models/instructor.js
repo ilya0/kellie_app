@@ -1,20 +1,25 @@
-var mongoose = require('mongoose');
+// var mongoose = require('mongoose');
+// var bcrypt = require('bcrypt');
 
-//TODO make this work with passport local
-// https://github.com/jaredhanson/passport-local
-var userSchema = new mongoose.Schema({
-  username : String,
-  password : String,
-});
 
-userSchema.methods.validatePassword = function(pwd) {
-  return bcrypt.compareSync(pwd, this.password);
-};
+// //TODO make tis work with passport local
+// // https://github.com/jaredhanson/passport-local
+// var instructorSchema = new mongoose.Schema({
+//   firstName   : String,
+//   password    : String,
+//   email       : String,
+//   bio         : String
 
-userSchema.methods.encrypt = function(pwd) {
-  return bcrypt.hashSync(pwd, 8);
-};
+// });
 
-var Instructor = mongoose.model('instructor', userSchema);
+// // instructorSchemaSchema.methods.validatePassword = function(pwd) {
+// //   return bcrypt.compareSync(pwd, this.password);
+// // };
 
-module.exports = Instructor;
+// // instructorSchemaSchema.methods.encrypt = function(pwd) {
+// //   return bcrypt.hashSync(pwd, 8);
+// // };
+
+// var Instructor = mongoose.model('Instructor', instructorSchema);
+
+// module.exports = Instructor;
