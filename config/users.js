@@ -12,7 +12,7 @@ exports.findById = function(id, cb) {
       cb(new Error('User ' + id + ' does not exist'));
     }
   });
-}
+};
 
 exports.findByUsername = function(username, cb) {
   process.nextTick(function() {
