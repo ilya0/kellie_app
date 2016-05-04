@@ -1,23 +1,23 @@
 var mongoose = require('mongoose');
-var bcrypt = require('bcrypt');
+var bcrypt = require('bcrypt-nodejs');
 
 
 //TODO make tis work with passport local
 // https://github.com/jaredhanson/passport-local
 var userSchema = new mongoose.Schema({
-  firstName   : String,
+  username   : String,
   password    : String,
   email       : String,
   bio         : String,
   role        : String
 });
 
-userSchema.methods.validatePassword = function(pwd) {
-  return bcrypt.compareSync(pwd, this.password);
+userSchema.methods.validatePassword = function(password) {
+  return bcrypt.compareSync(password, this.password);
 };
 
-userSchema.methods.encrypt = function(pwd) {
-  return bcrypt.hashSync(pwd, 8);
+userSchema.methods.encrypt = function(password) {
+  return bcrypt.hashSync(password, bcrypt.genSaltSync(8), null);
 };
 
 var User = mongoose.model('User', userSchema);

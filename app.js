@@ -38,8 +38,12 @@ app.use(require('express-session')({ secret: 'keyboard cat', resave: false, save
 app.use(passport.initialize());
 app.use(passport.session());
 
-var userRoutes = require('./routes/user')
+var userRoutes = require('./routes/user');
 app.use('/users', userRoutes);
+
+app.get('/', function(req, res, next) {
+  res.render('index', { title: 'Project 3' });
+});
 // app.use('/', routes);
 // app.use('/instructors', instructors);
 // app.use('/producers', producers);

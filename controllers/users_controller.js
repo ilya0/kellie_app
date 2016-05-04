@@ -1,5 +1,6 @@
 var userController = {};
 var User = require('../models/user');
+var passport = require('passport');
 
 userController.index = function(req, res) {
    User.find({}, function(err, users) {
@@ -13,26 +14,38 @@ userController.index = function(req, res) {
 // make new Instructor and new Producer
 userController.new = function(req, res) {
   // different views for instructors and producers
-  res.render('new');
+  res.render('instructorSignup');
 };
 
 // make create Instructor and create Producer
 userController.create = function(req, res) {
-  var user = new User();
-  user.firstName = req.body.firstName;
-  user.lastName = req.body.lastName;
-  user.email = req.body.email;
-  user.bio = req.body.bio;
-  // add role field
-  user.save(function(err) {
-    if (err) {
-      throw err;
-    }
-    // render view later
-    res.json(user);
+  var signUpStrategy = passport.authenticate('local-signup', {
+    successRedirect: '/',
+    failureRedirect: '/',
+    failureFlash: true
   });
+
+  return signUpStrategy(request, response);
 };
 
+userController.getLogin = function(request, response) {
+  response.render('login.ejs', { message: request.flash('loginMessage') });
+};
+
+userController.postLogin = function(request, response) {
+  var loginProperty = passport.authenticate('local-login', {
+    successRedirect : '/',
+    failureRedirect : '/login',
+    failureFlash : true
+  });
+
+  return loginProperty(request, response);
+};
+
+userController.getLogout = function(request, response) {
+  request.logout();
+  response.redirect('/');
+};
 userController.update = function(req, res) {};
 
 userController.show = function(req, res) {};
