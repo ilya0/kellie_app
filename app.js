@@ -12,7 +12,7 @@ var db            = require('./config/db');
 var app           = express();
 
 // Routes
-var instructorRoute = require('./routes/instructor.js');
+//var instructorRoute = require('./routes/instructor.js');
 var calendarRoute   = require('./routes/calendar');
 
 // view engine setup
