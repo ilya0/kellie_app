@@ -44,6 +44,11 @@ app.use('/users', userRoutes);
 app.get('/', function(req, res, next) {
   res.render('index', { title: 'Project 3' });
 });
+
+app.get('/calendar', function(req, res, next) {
+  res.render('calendar', { title: 'Project 3' });
+});
+
 // app.use('/', routes);
 // app.use('/instructors', instructors);
 // app.use('/producers', producers);
