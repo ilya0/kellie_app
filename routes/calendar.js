@@ -16,13 +16,24 @@ router.post('/', function(req, res, next){
   console.log(req.body);
   var newEvent = new Event();
   newEvent.title = req.body.title;
-  newEvent.start = new Date(2016, 04, 10);
-  newEvent.end = new Date(2016, 04, 10);
+  newEvent.start = req.body.start;
+  newEvent.end = req.body.start;
   newEvent.save(function(err) {
     if (err) throw err;
     console.log(newEvent);
     res.json({success: true, message: newEvent});
   });
+});
+
+//routes/calendar.js
+router.get('/feed', function(req, res, next){
+  Event.find({})
+    .then(function(events){
+      res.json(events);
+    })
+    .catch(function(err){
+      next(err);
+    });
 });
 
 module.exports = router;
