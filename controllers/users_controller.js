@@ -33,6 +33,10 @@ userController.getLogin = function(request, response) {
   response.render('login.ejs', { message: request.flash('loginMessage') });
 };
 
+userController.getLogin2 = function(request, response) {
+  response.render('login2.ejs', { message: request.flash('loginMessage') });
+};
+
 userController.postLogin = function(request, response) {
   var loginProperty = passport.authenticate('local-login', {
     successRedirect : '/calendar',

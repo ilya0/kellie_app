@@ -53,6 +53,10 @@ app.use('/profile', function(req, res, next) {
   res.render('profile', { title: 'Project 3'});
 });
 
+app.use('/login2', function(req, res, next) {
+  res.render('login2');
+});
+
 // app.use('/', routes);
 // app.use('/instructors', instructors);
 // app.use('/producers', producers);
