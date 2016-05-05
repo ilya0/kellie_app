@@ -22,7 +22,7 @@ instructorController.new = function(req, res) {
 instructorController.create = function(req, res) {
   var signUpStrategy = passport.authenticate('local-signup', {
     successRedirect: '/calendar',
-    failureRedirect: '/restricted',
+    failureRedirect: '/users/restricted',
     failureFlash: true
   });
 
@@ -40,7 +40,7 @@ instructorController.getLogin = function(request, response) {
 instructorController.postLogin = function(request, response) {
   var loginProperty = passport.authenticate('local-login', {
     successRedirect : '/calendar',
-    failureRedirect : '/instructors/signup',
+    failureRedirect : '/users/restricted',
     failureFlash : true
   });
   console.log('loginProperty');
