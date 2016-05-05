@@ -35,11 +35,11 @@ userController.getLogin = function(request, response) {
 
 userController.postLogin = function(request, response) {
   var loginProperty = passport.authenticate('local-login', {
-    successRedirect : '/',
-    failureRedirect : '/login',
+    successRedirect : '/calendar',
+    failureRedirect : '/',
     failureFlash : true
   });
-
+  console.log('loginProperty');
   return loginProperty(request, response);
 };
 

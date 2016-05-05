@@ -30,9 +30,9 @@ passport.use('local-signup', new LocalStrategy(
         var newUser     = new User();
         newUser.username = username;
         newUser.password = newUser.encrypt(password);
-        newUser.email = req.email;
-        newUser.bio = req.bio;
-        newUser.role = req.role;
+        newUser.email = req.body.email;
+        newUser.bio = req.body.bio;
+        newUser.role = req.body.role;
 
         newUser.save(function(err) {
           if (err) throw err;
@@ -44,7 +44,7 @@ passport.use('local-signup', new LocalStrategy(
 }));
 
 passport.use('local-login', new LocalStrategy(
-  function(req, username, password, done) {
+  function(username, password, done) {
 
     User.findOne({username: username}, function(err, user) {
       if (err) {
