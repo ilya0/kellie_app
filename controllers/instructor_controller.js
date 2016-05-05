@@ -29,12 +29,13 @@ instructors.show = function(req, res) {
     //res.render('instructor_list_page',{instructors:instructors});
   });
 
- var findemail = Instructor.findById(req.params.id, function(err, question){
-  console.log("inside the findbyID");
-  console.log("re.body contains"+req.params);
-    //var email = req.params.email;
-    var email = req.body.email;
-    });
+
+//does this belong in the controller? I'm trying it in the route
+ // var findemail = Instructor.findById(req.params.id, function(err, question){
+ //  console.log("inside the findbyID");
+ //  console.log("req.body contains"+req.params);
+ //    var email = req.body.email;
+ //    });
 
 
 
@@ -42,10 +43,7 @@ instructors.show = function(req, res) {
 
 
 
-
-
-
-
+//instructor list create function
 instructors.create = function(req, res) {
 var instructor = new Instructor();
 
