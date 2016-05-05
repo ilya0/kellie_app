@@ -21,6 +21,13 @@ $(document).ready(function() {
           $('#calendar').fullCalendar( 'refetchEvents' );
           console.log(response);
         });
+        // eventClick: function(event, element) {
+
+        // event.title = "CLICKED!";
+
+        // $('#calendar').fullCalendar('updateEvent', event);
+
+        // }
       }
     });
 
