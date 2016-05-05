@@ -19,6 +19,30 @@ instructors.index = function(req, res) {
 };
 
 
+instructors.show = function(req, res) {
+
+  var instructors = Instructor.find({}, function(err,instructors){
+    if(err){
+      throw err;
+    }
+    res.json(instructors);
+    //res.render('instructor_list_page',{instructors:instructors});
+  });
+
+ var findemail = Instructor.findById(req.params.id, function(err, question){
+  console.log("inside the findbyID");
+  console.log("re.body contains"+req.params);
+    //var email = req.params.email;
+    var email = req.body.email;
+    });
+
+
+
+};
+
+
+
+
 
 
 
