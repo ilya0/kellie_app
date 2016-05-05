@@ -21,8 +21,8 @@ userController.new = function(req, res) {
 // make create Instructor and create Producer
 userController.create = function(req, res) {
   var signUpStrategy = passport.authenticate('local-signup', {
-    successRedirect: '/',
-    failureRedirect: 'users/signup',
+    successRedirect: '/calendar',
+    failureRedirect: 'signup',
     failureFlash: true
   });
 
@@ -36,7 +36,7 @@ userController.getLogin = function(request, response) {
 userController.postLogin = function(request, response) {
   var loginProperty = passport.authenticate('local-login', {
     successRedirect : '/calendar',
-    failureRedirect : '/',
+    failureRedirect : '/users/signup',
     failureFlash : true
   });
   console.log('loginProperty');
