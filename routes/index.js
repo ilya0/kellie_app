@@ -1,7 +1,18 @@
 var express = require('express');
 var router = express.Router();
 var instructorController = require('../controllers/instructor_controller.js');
+var nodemailer = require('nodemailer');
+var favicon       = require('serve-favicon');
 
+
+//node mailer variable used in the send route
+var smtpTransport = nodemailer.createTransport("SMTP",{
+    service: "Gmail",
+    auth: {
+        user: "email@gmail.com",
+        pass: "password1"
+    }
+});
 
 
 
@@ -24,6 +35,30 @@ router.route('/instructorlist')
 //.put(usersController.update)
 
 
+
+
+//routes for nodemailer
+router.get('/send',function(req,res){
+    var mailOptions={
+        //to : req.query.to,  //this is to pull from the form, but I am hardcoding
+        to: "iosovets@gmail.com",
+        subject : "req.query.subject",
+        text : "req.query.text"
+    };
+
+
+    console.log(mailOptions);
+
+    smtpTransport.sendMail(mailOptions, function(error, response){
+     if(error){
+            console.log(error);
+        res.end("error");
+     }else{
+            console.log("Message sent: " + response.message);
+        res.end("sent");
+         }
+});
+});
 
 
 

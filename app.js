@@ -10,6 +10,9 @@ var session       = require('express-session');
 var db            = require('./config/db');
 // var GoogleStrategy = require('passport-google-oauthx20').Strategy;
 var app           = express();
+//this is the nodemailer require
+var nodemailer = require("nodemailer");
+var nodemailerserver =require('./server.js');
 
 // Routes
 //var instructorRoute = require('./routes/instructor.js');
