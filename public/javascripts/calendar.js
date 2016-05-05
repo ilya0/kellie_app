@@ -6,7 +6,7 @@ $(document).ready(function() {
       events: {
         url: "/calendar/feed",
         type: "GET",
-        color: "pink"
+        color: "blue"
       },
 
       dayClick: function() {
