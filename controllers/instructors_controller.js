@@ -39,7 +39,7 @@ instructorController.getLogin = function(request, response) {
 
 instructorController.postLogin = function(request, response) {
   var loginProperty = passport.authenticate('local-login', {
-    successRedirect : '/calendar',
+    successRedirect : '/users/calendar',
     failureRedirect : '/users/restricted',
     failureFlash : true
   });
