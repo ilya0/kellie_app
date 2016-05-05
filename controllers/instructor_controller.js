@@ -18,9 +18,8 @@ instructors.index = function(req, res) {
   });
 };
 
-
+//using this to show the list of instructors on /instructorlist
 instructors.show = function(req, res) {
-
   var instructors = Instructor.find({}, function(err,instructors){
     if(err){
       throw err;
@@ -28,16 +27,6 @@ instructors.show = function(req, res) {
     res.json(instructors);
     //res.render('instructor_list_page',{instructors:instructors});
   });
-
-
-//does this belong in the controller? I'm trying it in the route
- // var findemail = Instructor.findById(req.params.id, function(err, question){
- //  console.log("inside the findbyID");
- //  console.log("req.body contains"+req.params);
- //    var email = req.body.email;
- //    });
-
-
 
 };
 

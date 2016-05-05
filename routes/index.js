@@ -6,7 +6,7 @@ var favicon       = require('serve-favicon');
 var Instructor = require('../models/inst_to_sel.js');
 var bodyParser    = require('body-parser');
 var mongoose = require('mongoose');
-
+var profileController = require('/controllers/profile_controller.js');
 
 //node mailer variable used in the send route
 var smtpTransport = nodemailer.createTransport("SMTP",{
@@ -37,6 +37,10 @@ router.route('/instructorlist')
 router.route('/showinstructorlist')
 .get(instructorController.show)
 
+//route for the profile page
+router.route('/profile')
+.get(profileController.show)
+
 
 // ++++++++++++routes for singluar button action
 router.get('/send/:id',function(req,res){
@@ -51,11 +55,8 @@ console.log("vars passed+++");
 
 //this is in the controller now - maybe its the way to do it?
   Instructor.findById(req.params.id, function(err, instructor){
-    console.log("inside the findbyID++");
-    console.log("req.params contains"+req.params);
-    //var email = req.params.email;
     email = instructor.email;
-    console.log("email var :"+email);
+    name = instructor.name;
 
 //this is part of the nodemailer, but because  the instructor.finbyid takes time, I had to put it in the whole function, otherwise it was taking time to run and the email was not being found when the nodemailer needed to mail
     var mailOptions={
