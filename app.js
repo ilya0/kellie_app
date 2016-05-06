@@ -4,37 +4,85 @@ var favicon       = require('serve-favicon');
 var logger        = require('morgan');
 var cookieParser  = require('cookie-parser');
 var bodyParser    = require('body-parser');
-var routes        = require('./routes/index');
-var instructors   = require('./routes/instructor');
 var session       = require('express-session');
+var Strategy      = require('passport-local').Strategy;
+var passport      = require('passport');
 var db            = require('./config/db');
-// var GoogleStrategy = require('passport-google-oauthx20').Strategy;
 var app           = express();
+
+
 //this is the nodemailer require
 var nodemailer = require("nodemailer");
 var nodemailerserver =require('./server.js');
 
-// Routes
-//var instructorRoute = require('./routes/instructor.js');
 var calendarRoute   = require('./routes/calendar');
+
+var flash         = require('connect-flash');
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
-// uncomment after placing your fa vicon in /public
-//app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
+//Middleware
 app.use(logger('dev'));
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
+app.use(session({ secret: 'secret', resave: false, saveUninitialized: false})); // session secret
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(passport.initialize());
+app.use(passport.session()); // persistent login sessions
+app.use(flash());
 
-app.use('/', routes);
+// Use application-level middleware for common functionality, including
+// logging, parsing, and session handling.
+app.use(require('morgan')('combined'));
+app.use(require('cookie-parser')());
+app.use(require('body-parser').urlencoded({ extended: true }));
+app.use(require('express-session')({ secret: 'keyboard cat', resave: false, saveUninitialized: false }));
+
+// Initialize Passport and restore authentication state, if any, from the
+// session.
+app.use(passport.initialize());
+app.use(passport.session());
+
+var userRoutes = require('./routes/user');
+app.use('/users', userRoutes);
+
+app.get('/', function(req, res, next) {
+  res.render('index', { title: 'Project 3' });
+});
+
+
+app.use('/users/calendar', function(req, res, next) {
+  res.render('calendar', { title: 'Project 3' });
+});
+
+app.use('/profile', function(req, res, next) {
+  res.render('profile', { title: 'Project 3'});
+});
+
+
+app.use('/login2', function(req, res, next) {
+  res.render('login2');
+});
+
+app.use('/users/restricted', function(req, res, next) {
+  res.render('restricted', { title: 'Project 3' });
+});
+// app.use('/', routes);
 // app.use('/instructors', instructors);
-
-app.use('/calendar', calendarRoute);
-
+// app.use('/producers', producers);
+// app.use('/producerslogin', producerslogin);
+// app.get('/producerslogin',
+  // function(req, res){
+    // res.render('login');
+  // });
+//
+// app.listen(port, function(){
+//   console.log("Listening on port " + port);
+// });
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

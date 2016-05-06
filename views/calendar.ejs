@@ -1,34 +1,55 @@
 <!DOCTYPE html>
 <html>
   <head>
+
     <title>Calendar</title>
     <link rel='stylesheet' href='/fullCalendar/fullcalendar.css' />
     <link rel='stylesheet' href='/stylesheets/style.css' />
-
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-beta1/jquery.min.js'></script>
+    <script src="https://code.jquery.com/jquery-2.2.3.js" integrity="sha256-laXWtGydpwqJ8JA+X9x2miwmaiKhn8tVmOVEigRNtP4=" crossorigin="anonymous"></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.13.0/moment.min.js'></script>
     <script src='/fullCalendar/fullcalendar.js'></script>
-    <script>$(document).ready(function() {
 
-    // page is now ready, initialize the calendar...
+  </head>
+    <body>
+    <h1> Instructor List</h1>
+    <div id="calendar"></div>
+    <script src='/javascripts/calendar.js'></script>
 
-    $('#calendar').fullCalendar({
-    dayClick: function() {
-        alert('a day has been clicked!');
-     }
-  });
+    <body>
+    <% include ./partials/header %>
 
 
-});</script>
+    <div id="calendar"></div>
+
+    <script src='/javascripts/calendar.js'></script>
+<link rel="stylesheet" type="text/css" href="http://csshake.surge.sh/csshake.min.css">
+
+
+
+    <title>Calendar</title>
+    <link rel='stylesheet' href='/fullCalendar/fullcalendar.css' />
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <script src="https://code.jquery.com/jquery-2.2.3.js" integrity="sha256-laXWtGydpwqJ8JA+X9x2miwmaiKhn8tVmOVEigRNtP4=" crossorigin="anonymous"></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.13.0/moment.min.js'></script>
+    <script src='/fullCalendar/fullcalendar.js'></script>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
   </head>
   <body>
+  <div class="shake-hard">
+    <h1>Instructor Time Slots</h1></div>
+    <div id='calendar'></div>
+    <br>
+  <div class='producer'>
+
+
+    <body>
     <div id="calendar"></div>
-    <h1>whatever</h1>
-    <br>
-  <div class="instructor">
-    <p> Instructor Login </p>
-  </div>
-    <br>
-    <p>Splashpage goes here</p>
+    <script src='/javascripts/calendar.js'></script>
+
+
   </body>
 </html>
