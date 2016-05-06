@@ -1,31 +1,31 @@
 //var instructorController = {};
 //this is the instructor list requires that operate the instructor
-var Instructor = require('../models/inst_to_sel.js');
-var instructors = {};
+var Instructorlist = require('../models/inst_to_sel.js');
+var instructorslist = {};
 
 
 //this the instructor list actions
 
 //create action to display all users
-instructors.index = function(req, res) {
+instructorslist.index = function(req, res) {
 
-  var instructors = Instructor.find({}, function(err,instructors){
+  var instructorslist = Instructorlist.find({}, function(err,instructorslist){
     if(err){
       throw err;
     }
-    //res.json(instructors);
-    res.render('instructor_list_page',{instructors:instructors});
+    //res.json(instructorslist);
+    res.render('instructor_list_page',{instructorslist:instructorslist});
   });
 };
 
-//using this to show the list of instructors on /instructorlist
-instructors.show = function(req, res) {
-  var instructors = Instructor.find({}, function(err,instructors){
+//using this to show the list of instructorslist on /instructorlist
+instructorslist.show = function(req, res) {
+  var instructorslist = Instructorlist.find({}, function(err,instructorslist){
     if(err){
       throw err;
     }
-    res.json(instructors);
-    //res.render('instructor_list_page',{instructors:instructors});
+    res.json(instructorslist);
+    //res.render('instructor_list_page',{instructorslist:instructorslist});
   });
 
 };
@@ -33,8 +33,8 @@ instructors.show = function(req, res) {
 
 
 //instructor list create function
-instructors.create = function(req, res) {
-var instructor = new Instructor();
+instructorslist.create = function(req, res) {
+var instructor = new Instructorlist();
 
 instructor.name = req.body.name;
 instructor.skills = req.body.skills;
@@ -53,8 +53,8 @@ res.json({sucess:true,message:'Instructor created! pow'});
 
 
 //action created to destroy the instructor account
-instructors.destroy = function(req, res) {
-Instructor.findOneAndRemove({email:req.params.email},function(err,user){
+instructorslist.destroy = function(req, res) {
+Instructorlist.findOneAndRemove({email:req.params.email},function(err,user){
  if (err){
     throw err;
   }
@@ -67,7 +67,7 @@ Instructor.findOneAndRemove({email:req.params.email},function(err,user){
 
 
 
-module.exports = instructors;
+module.exports = instructorslist;
 
 
 
