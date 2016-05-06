@@ -71,6 +71,7 @@ app.use('/users/restricted', function(req, res, next) {
   res.render('restricted', { title: 'Project 3' });
 });
 
+app.use('/list',instructorlistroutes);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

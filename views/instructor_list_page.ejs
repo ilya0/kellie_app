@@ -60,13 +60,10 @@ if(data=="sent")
 
 });
 
-
-
-
 //this is the test button to see if the route can be reached
 $( "#test_emailer_button" ).click(function() {
   console.log("test button pressed");
-  $.get("/send",function(data){
+  $.get("/list/send",function(data){
               // get route to /send - sending to,subject,text, callback function data
               if(data=="sent")
               {
@@ -104,22 +101,12 @@ $( "#test_emailer_button" ).click(function() {
        <p class="Instructor col-xs-3"><%= instructorslist[i].name %> </p>
        <p class="Instructor col-xs-3"><%= instructorslist[i].profit %> </p>
        <p class ="Instructor email col-xs-3"><%= instructorslist[i].email %></p>
-       <a class="btn btn-success btn-sm col-xs-3" id="invite-btn" href="/send/<%= instructorslist[i].id %>">Invite <%= instructorslist[i].name %></a>
+       <a class="btn btn-success btn-sm col-xs-3" id="invite-btn" href="/list/send/<%= instructorslist[i].id %>">Invite <%= instructorslist[i].name %></a>
      </div>
 
     <% }; %>
 
   </ul>
-
- <!--   <div>
-    <h1>Custom Email form</h1>
-    <input id="to" type="text" placeholder="Enter E-mail ID where you want to send" />
-    <input id="subject" type="text" placeholder="Write Subject" />
-    <textarea id="content" cols="40" rows="5" placeholder="Write what you want to send"></textarea>
-    <button id="send_email">Send Email</button>
-    <span id="message"></span>
-  </div> -->
-
     <h3 >Custom Email Form</h3>
     <span id="message">Enter info here to send a custom message to an email</span>
     <form class="form-horizontal">
@@ -130,50 +117,25 @@ $( "#test_emailer_button" ).click(function() {
         </div>
       </div>
       <div class="form-group">
-        <label for="inputPassword3" class="col-sm-2 control-label">Password</label>
+        <label for="inputPassword3" class="col-sm-2 control-label">Subject</label>
         <div class="col-sm-10">
           <input id="subject" type="text" placeholder="Write Subject">
         </div>
       </div>
       <div class="form-group">
-        <label for="inputPassword3" class="col-sm-2 control-label">Subject</label>
+        <label for="inputPassword3" class="col-sm-2 control-label">Content</label>
         <div class="col-sm-10">
           <textarea id="content" cols="40" rows="5" placeholder="Write what you want to send"></textarea>
         </div>
       </div>
       <div class="form-group">
         <div class="col-sm-offset-2 col-sm-10">
-          <button type="submit" class="btn btn-default" id="send_email">Sign in</button>
+          <button type="submit" class="btn btn-default" id="send_email">Send Email</button>
         </div>
       </div>
       <!-- <span id="message"></span> -->
     </form>
 
-
-
-
-=======
- This the page where the producers will be able select the producers to email to
-<br>
-<br>
-        <% for(var i=0; i < instructors.length; i++) { %>
-            <div class="col-sm-6 col-md-3 set-height">
-                <li class="Instructor"><%= instructors[i].name %> - <a href="/send/<%= instructors[i].id %>"><%= instructors[i].email %></a> - <button id="instructorbutton">Send Email <%= instructors[i].email %></button>
-                </li>
-                  <% }; %>
-
-                  <br>
-                  <button id="test_emailer_button">This is a singular test button going to the send route of the invite email</button><br><span id="test_emailer_message"></span></li>
-                  <br>
-
-Node.JS Email application part
-<div>
-<h1>Mailer In Node.JS</h1>
-<input id="to" type="text" placeholder="Enter E-mail ID where you want to send" />
-<input id="subject" type="text" placeholder="Write Subject" />
-<textarea id="content" cols="40" rows="5" placeholder="Write what you want to send"></textarea>
-<button id="send_email">Send Email</button>
-<span id="message"></span>
 
 </div>
 </body>

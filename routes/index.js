@@ -20,11 +20,11 @@ var smtpTransport = nodemailer.createTransport("SMTP",{
 
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
- res.render('index');
-console.log("this is the root route that goes to index and renders it");
+// router.get('/', function(req, res, next) {
+//  res.render('index');
+// console.log("this is the root route that goes to index and renders it");
 
-});
+// });
 
 //create routes for instructorlist
 router.route('/instructorlistpage')
@@ -54,8 +54,8 @@ console.log("vars passed+++");
 
 //this is in the controller now - maybe its the way to do it?
   Instructorlist.findById(req.params.id, function(err, instructorlist){
-    email = instructor.email;
-    name = instructor.name;
+    email = instructorlist.email;
+    name = instructorlist.name;
 
 //this is part of the nodemailer, but because  the instructor.finbyid takes time, I had to put it in the whole function, otherwise it was taking time to run and the email was not being found when the nodemailer needed to mail
     var mailOptions={
