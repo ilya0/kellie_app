@@ -9,14 +9,16 @@ var Strategy      = require('passport-local').Strategy;
 var passport      = require('passport');
 var db            = require('./config/db');
 var app           = express();
-<<<<<<< HEAD
 
-// Routes
-var instructorRoute = require('./routes/instructor.js');
+
+//this is the nodemailer require
+var nodemailer = require("nodemailer");
+var nodemailerserver =require('./server.js');
+
 var calendarRoute   = require('./routes/calendar');
-=======
+
 var flash         = require('connect-flash');
->>>>>>> 2a5adb9ff03fe9bf68d491365429de598572f0df
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -52,9 +54,7 @@ app.get('/', function(req, res, next) {
   res.render('index', { title: 'Project 3' });
 });
 
-<<<<<<< HEAD
-app.use('/calendar', calendarRoute);
-=======
+
 app.use('/users/calendar', function(req, res, next) {
   res.render('calendar', { title: 'Project 3' });
 });
@@ -62,7 +62,7 @@ app.use('/users/calendar', function(req, res, next) {
 app.use('/profile', function(req, res, next) {
   res.render('profile', { title: 'Project 3'});
 });
->>>>>>> 2a5adb9ff03fe9bf68d491365429de598572f0df
+
 
 app.use('/login2', function(req, res, next) {
   res.render('login2');
