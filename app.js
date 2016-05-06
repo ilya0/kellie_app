@@ -12,7 +12,7 @@ var app           = express();
 
 
 // Routes
-var instructorRoute = require('./routes/instructor.js');
+
 var calendarRoute   = require('./routes/calendar');
 
 var flash         = require('connect-flash');
