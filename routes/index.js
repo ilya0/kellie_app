@@ -3,7 +3,7 @@ var router = express.Router();
 var instructorlistController = require('../controllers/instructor_controller.js');
 var nodemailer = require('nodemailer');
 var favicon       = require('serve-favicon');
-var Instructor = require('../models/inst_to_sel.js');
+var Instructorlist = require('../models/inst_to_sel.js');
 var bodyParser    = require('body-parser');
 var mongoose = require('mongoose');
 var profileController = require('../controllers/profile_controller.js');
@@ -27,13 +27,13 @@ console.log("this is the root route that goes to index and renders it");
 });
 
 //create routes for instructorlist
-router.route('/instructorlist')
+router.route('/instructorlistpage')
 .get(instructorlistController.index)
 .post(instructorlistController.create)
 //.put(usersController.update)
 
 //slick way to just see all the instructors listed
-router.route('/showinstructorlist')
+router.route('/showinstructorlistpage')
 .get(instructorlistController.show)
 
 
@@ -53,7 +53,7 @@ console.log("route /send/:id hit+++");
 console.log("vars passed+++");
 
 //this is in the controller now - maybe its the way to do it?
-  Instructor.findById(req.params.id, function(err, instructor){
+  Instructorlist.findById(req.params.id, function(err, instructorlist){
     email = instructor.email;
     name = instructor.name;
 
@@ -80,12 +80,7 @@ console.log("vars passed+++");
 
   });
 
-
-
-
-
 });
-
 
 
 

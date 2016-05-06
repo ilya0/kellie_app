@@ -14,7 +14,7 @@ instructorslist.index = function(req, res) {
       throw err;
     }
     //res.json(instructorslist);
-    res.render('instructor_list_page',{instructorslist:instructorslist});
+   res.render('instructor_list_page',{instructorslist:instructorslist});
   });
 };
 
@@ -69,36 +69,4 @@ Instructorlist.findOneAndRemove({email:req.params.email},function(err,user){
 
 module.exports = instructorslist;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// instructorController.index = function(req, res) {};
-
-// instructorController.new = function(req, res) {};
-
-// instructorController.create = function(req, res) {};
-
-// instructorController.update = function(req, res) {};
-
-// instructorController.show = function(req, res) {};
-
-// instructorController.edit = function(req, res) {};
-
-// instructorController.destroy = function(req, res) {};
-
-//module.exports = instructorController;
 
