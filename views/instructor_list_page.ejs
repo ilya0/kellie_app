@@ -98,13 +98,13 @@ $( "#test_emailer_button" ).click(function() {
        <p class ="buttoncoltitle col-xs-3">Send invite time/app</p>
      </div>
    <ul>
-     <% for(var i=0; i < instructors.length; i++) { %>
+     <% for(var i=0; i < instructorslist.length; i++) { %>
 
      <div class="row" style="margin-top: 15px">
-       <p class="Instructor col-xs-3"><%= instructors[i].name %> </p>
-       <p class="Instructor col-xs-3"><%= instructors[i].profit %> </p>
-       <p class ="Instructor email col-xs-3"><%= instructors[i].email %></p>
-       <a class="btn btn-success btn-sm col-xs-3" id="invite-btn" href="/send/<%= instructors[i].id %>">Invite <%= instructors[i].name %></a>
+       <p class="Instructor col-xs-3"><%= instructorslist[i].name %> </p>
+       <p class="Instructor col-xs-3"><%= instructorslist[i].profit %> </p>
+       <p class ="Instructor email col-xs-3"><%= instructorslist[i].email %></p>
+       <a class="btn btn-success btn-sm col-xs-3" id="invite-btn" href="/send/<%= instructorslist[i].id %>">Invite <%= instructorslist[i].name %></a>
      </div>
 
     <% }; %>

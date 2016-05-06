@@ -12,7 +12,7 @@ var instructorSchema = new mongoose.Schema({
 });
 
 
-var Instructor = mongoose.model('instructor', instructorSchema);
+var Instructorlist = mongoose.model('instructorlist', instructorSchema);
 
 
-module.exports = Instructor;
+module.exports = Instructorlist;
