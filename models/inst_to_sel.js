@@ -7,7 +7,7 @@ var instructorSchema = new mongoose.Schema({
           location: String,
           skills: String,
           email: String,
-          profit:Number
+          profit:String
 
 });
 
