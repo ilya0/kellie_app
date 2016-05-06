@@ -152,6 +152,29 @@ $( "#test_emailer_button" ).click(function() {
 
 
 
+=======
+ This the page where the producers will be able select the producers to email to
+<br>
+<br>
+        <% for(var i=0; i < instructors.length; i++) { %>
+            <div class="col-sm-6 col-md-3 set-height">
+                <li class="Instructor"><%= instructors[i].name %> - <a href="/send/<%= instructors[i].id %>"><%= instructors[i].email %></a> - <button id="instructorbutton">Send Email <%= instructors[i].email %></button>
+                </li>
+                  <% }; %>
+
+                  <br>
+                  <button id="test_emailer_button">This is a singular test button going to the send route of the invite email</button><br><span id="test_emailer_message"></span></li>
+                  <br>
+
+Node.JS Email application part
+<div>
+<h1>Mailer In Node.JS</h1>
+<input id="to" type="text" placeholder="Enter E-mail ID where you want to send" />
+<input id="subject" type="text" placeholder="Write Subject" />
+<textarea id="content" cols="40" rows="5" placeholder="Write what you want to send"></textarea>
+<button id="send_email">Send Email</button>
+<span id="message"></span>
+
 </div>
 </body>
 
