@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-var instructorController = require('../controllers/instructor_controller.js');
+var instructorlistController = require('../controllers/instructor_controller.js');
 var nodemailer = require('nodemailer');
 var favicon       = require('serve-favicon');
 var Instructor = require('../models/inst_to_sel.js');
@@ -28,17 +28,17 @@ console.log("this is the root route that goes to index and renders it");
 
 //create routes for instructorlist
 router.route('/instructorlist')
-.get(instructorController.index)
-.post(instructorController.create)
+.get(instructorlistController.index)
+.post(instructorlistController.create)
 //.put(usersController.update)
 
 //slick way to just see all the instructors listed
 router.route('/showinstructorlist')
-.get(instructorController.show)
+.get(instructorlistController.show)
 
 
 router.route('/:email')
-.delete(instructorController.destroy)
+.delete(instructorlistController.destroy)
 
 
 // ++++++++++++routes for singluar button action
