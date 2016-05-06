@@ -6,13 +6,13 @@ var favicon       = require('serve-favicon');
 var Instructor = require('../models/inst_to_sel.js');
 var bodyParser    = require('body-parser');
 var mongoose = require('mongoose');
-var profileController = require('/controllers/profile_controller.js');
+var profileController = require('../controllers/profile_controller.js');
 
 //node mailer variable used in the send route
 var smtpTransport = nodemailer.createTransport("SMTP",{
     service: "Gmail",
     auth: {
-        user: "blackhattest99@gmail.com",
+        user: "blackhattest99@gmail.com", //these should be replaced with the email that is going to be used
         pass: "blackhattingaround1"
     }
 });
@@ -37,9 +37,9 @@ router.route('/instructorlist')
 router.route('/showinstructorlist')
 .get(instructorController.show)
 
-//route for the profile page
-router.route('/profile')
-.get(profileController.show)
+// //route for the profile page   (need to make the profile edit routes)
+// router.route('/profile')
+// .get(profileController.show)
 
 
 // ++++++++++++routes for singluar button action
