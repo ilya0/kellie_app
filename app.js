@@ -10,8 +10,9 @@ var passport      = require('passport');
 var db            = require('./config/db');
 var app           = express();
 
-
-// Routes
+//this is the nodemailer require
+var nodemailer = require("nodemailer");
+var nodemailerserver =require('./server.js');
 
 var calendarRoute   = require('./routes/calendar');
 
