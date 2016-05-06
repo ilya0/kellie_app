@@ -30,16 +30,15 @@ console.log("this is the root route that goes to index and renders it");
 router.route('/instructorlist')
 .get(instructorController.index)
 .post(instructorController.create)
-// .delete(instructorController.destroy)
 //.put(usersController.update)
 
 //slick way to just see all the instructors listed
 router.route('/showinstructorlist')
 .get(instructorController.show)
 
-// //route for the profile page   (need to make the profile edit routes)
-// router.route('/profile')
-// .get(profileController.show)
+
+router.route('/:email')
+.delete(instructorController.destroy)
 
 
 // ++++++++++++routes for singluar button action

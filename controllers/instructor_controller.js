@@ -52,6 +52,21 @@ res.json({sucess:true,message:'Instructor created! pow'});
 };
 
 
+//action created to destroy the instructor account
+instructors.destroy = function(req, res) {
+Instructor.findOneAndRemove({email:req.params.email},function(err,user){
+ if (err){
+    throw err;
+  }
+  res.json(user);
+  console.log("account removed");
+});
+
+};
+
+
+
+
 module.exports = instructors;
 
 
