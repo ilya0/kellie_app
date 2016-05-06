@@ -40,6 +40,7 @@ instructor.name = req.body.name;
 instructor.skills = req.body.skills;
 instructor.location = req.body.location;
 instructor.email = req.body.email;
+instructor.profit = req.body.profit;
 console.log(instructor);
 
 instructor.save(function(err){

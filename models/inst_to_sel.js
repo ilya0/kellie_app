@@ -6,7 +6,9 @@ var instructorSchema = new mongoose.Schema({
   name: { type: String, required: true},
           location: String,
           skills: String,
-          email: String
+          email: String,
+          profit:Number
+
 });
 
 

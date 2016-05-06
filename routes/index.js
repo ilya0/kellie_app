@@ -64,7 +64,7 @@ console.log("vars passed+++");
         //to : req.query.to,  //this is to pull from the form, but I am hardcoding
         to: email, //this needs to be the instructor email
         subject : "Invite to GA Schedulizer APP - Please select a time",
-        text : "This is a link to whereever the app will reside please log in and select a time at: <hyperlink"
+        text : "This is a link to whereever the app will reside please log in and select a time at:<link>"
     };
 
     console.log(mailOptions);
