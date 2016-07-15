@@ -12,18 +12,7 @@ router.get('/', function(req, res, next) {
   res.render('calendar');
 });
 
-router.post('/', function(req, res, next){
-  console.log(req.body);
-  var newEvent = new Event();
-  newEvent.title = req.body.title;
-  newEvent.start = req.body.start;
-  newEvent.end = req.body.start;
-  newEvent.save(function(err) {
-    if (err) throw err;
-    console.log(newEvent);
-    res.json({success: true, message: newEvent});
-  });
-});
+
 
 //routes/calendar.js
 
